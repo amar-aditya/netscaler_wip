@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python2.6
 __author__  = "Amar Aditya" 
 #This program will give below ouputs
 #All the Domain from NS.com
