@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python2.6
 __author__  = "Amar Aditya"
 
 #This is Python Script is going to determin which all WIP are up & Down
