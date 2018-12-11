@@ -1,5 +1,5 @@
 #!/usr/bin/env python2.6
-__author__  = "Amar Aditya"
+__author__  = "Amer Aditya"
 
 #This is Python Script is going to determin which all WIP are up & Down
 #Also it will output  that UP & down in seperate WIP.text -> up_wip.txt & down_WIP.txt
