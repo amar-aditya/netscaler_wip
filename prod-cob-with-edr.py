@@ -1,11 +1,11 @@
 #!/usr/bin/env python2.7
 __author__  = "Amer Aditya" 
 #This program will give below ouputs
-#All the Domain from NS.com
+#All the Domain from ns.conf
 #All the prod_gslb_vserver which are active-active domain
 #AlL the prod & cob gslb vserver from the active/passive setup
-#GSLB Domain setup which are with & without
-#NOTE:- EDR is importaint parameter as if not enabled then though GSLB VS is down, yet domain keeps and resolving & ip is reolved.
+#GSLB Domain setup which are with & without EDR
+#NOTE:- EDR is importaint parameter as if not enabled then though GSLB VS is down, yet domain keeps and resolving & ip is resolved.
 
 import os
 import os.path
