@@ -1,5 +1,5 @@
 #!/usr/bin/env python2.7
-__author__  = "Amar Aditya" 
+__author__  = "Amer Aditya" 
 #This program will give below ouputs
 #All the Domain from NS.com
 #All the prod_gslb_vserver which are active-active domain
@@ -18,8 +18,8 @@ def prodcob():
 		data=d_name.readlines()
 		for domain in data:
 			domain=domain.strip('\n')
-			prod_vs_value =  (os.popen("cat ns.conf | grep -i "+ domain + " | cut -d ' ' -f4").read()).strip('\n')
-			bckp_vs_value = (os.popen("cat ns.conf | grep -w " + prod_vs_value + " | grep -i 'backupVserver' | cut -d ' ' -f6 ").read()).strip('\n')
+			prod_vs_value =  (os.popen("cat ns.conf | grep -i "+ domain + " | cut -d ' ' -f4 | head -1" ).read()).strip('\n')
+			bckp_vs_value = (os.popen("cat ns.conf | grep -w " + prod_vs_value + " | grep -i 'backupVserver' | cut -d ' ' -f6  | head -1").read()).strip('\n')
 			#print (bckp_vs_value)
 			#cob_backup = (os.popen("cat ns.conf | grep -i 'set gslb vserver " + bckp_vs_value + "' | grep -i  'backupVserver' " + " |  cut -d ' ' -f6 ").read()).strip('\n')
 			#print (cob_backup)
@@ -38,10 +38,11 @@ def prodcob():
 #cat ns01.conf | grep -i svsbbo-B177705-Prod | grep -i add | grep -oP '(?<=-EDR )[^ ]*'	
 def check_edr(edr_value):
 	#print(edr_value)
-	value=(os.popen("cat ns.conf | grep -i " + edr_value + " | grep -i add | grep -oP '(?<=-EDR )[^ ]*'").read()).strip('\n')
+	value=(os.popen("cat ns.conf | grep -i 'add gslb vserver " + edr_value + " ' | grep -oP '(?<=-EDR )[^ ]*' | head -1").read()).strip('\n')
+	value1=(os.popen("cat ns.conf | grep -i 'set gslb vserver " + edr_value + " ' | grep -oP '(?<=-EDR )[^ ]*' | head -1").read()).strip('\n')
 	string = "ENABLED"
 	#print (value)
-	if value.lower() == string.lower():
+	if (value.lower() == string.lower()) or (value1.lower() == string.lower()):
 		return 1
 	else:
 		return 0
