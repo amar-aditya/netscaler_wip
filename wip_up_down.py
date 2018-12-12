@@ -26,9 +26,9 @@ def main():
 			#print(domainName.strip('\n'))
 			domainName =  domainName.strip('\n')
 			ping = ping_reach(domainName)
-			print (ping)
+			#print (ping)
 			host = host_lookup(domainName)
-			print (host)
+			#print (host)
 			if (ping == 0 and host == 1):
 				os.popen("echo " + domainName + " is up  >> wip_up.txt")
 			else:
