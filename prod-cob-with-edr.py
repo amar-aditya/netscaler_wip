@@ -40,8 +40,8 @@ def check_edr(edr_value):
 	#print(edr_value)
 	#value=(os.popen("cat ns.conf | grep -i 'add gslb vserver " + edr_value + " ' | grep -oP '(?<=-EDR )[^ ]*' | head -1").read()).strip('\n')
 	#value1=(os.popen("cat ns.conf | grep -i 'set gslb vserver " + edr_value + " ' | grep -oP '(?<=-EDR )[^ ]*' | head -1").read()).strip('\n')
-	value =  (os.popen("cat ns.conf | grep -i " + edr_value + " | grep -i 'set ' | grep -i 'edr' | head -1 ").read()).strip('\n')
-	value1 = (os.popen("cat ns.conf | grep -i " + edr_value + " | grep -i 'add ' | grep -i 'edr' | head -1 ").read()).strip('\n')
+	value =  (os.popen("cat ns.conf | grep -i " + edr_value + " | grep -i 'set ' | grep -w 'EDR ENABLED' | head -1 ").read()).strip('\n')
+	value1 = (os.popen("cat ns.conf | grep -i " + edr_value + " | grep -i 'add ' | grep -w 'EDR ENABLED' | head -1 ").read()).strip('\n')
 	
 	#string = "ENABLED"
 	#print (value + " "+  value1)
