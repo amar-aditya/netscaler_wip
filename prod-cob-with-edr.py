@@ -38,11 +38,16 @@ def prodcob():
 #cat ns01.conf | grep -i svsbbo-B177705-Prod | grep -i add | grep -oP '(?<=-EDR )[^ ]*'	
 def check_edr(edr_value):
 	#print(edr_value)
-	value=(os.popen("cat ns.conf | grep -i 'add gslb vserver " + edr_value + " ' | grep -oP '(?<=-EDR )[^ ]*' | head -1").read()).strip('\n')
-	value1=(os.popen("cat ns.conf | grep -i 'set gslb vserver " + edr_value + " ' | grep -oP '(?<=-EDR )[^ ]*' | head -1").read()).strip('\n')
-	string = "ENABLED"
-	#print (value)
-	if (value.lower() == string.lower()) or (value1.lower() == string.lower()):
+	#value=(os.popen("cat ns.conf | grep -i 'add gslb vserver " + edr_value + " ' | grep -oP '(?<=-EDR )[^ ]*' | head -1").read()).strip('\n')
+	#value1=(os.popen("cat ns.conf | grep -i 'set gslb vserver " + edr_value + " ' | grep -oP '(?<=-EDR )[^ ]*' | head -1").read()).strip('\n')
+	value =  (os.popen("cat ns.conf | grep -i " + edr_value + " | grep -i 'set ' | grep -i 'edr' | head -1 ").read()).strip('\n')
+	value1 = (os.popen("cat ns.conf | grep -i " + edr_value + " | grep -i 'add ' | grep -i 'edr' | head -1 ").read()).strip('\n')
+	
+	#string = "ENABLED"
+	#print (value + " "+  value1)
+	#if (value.lower() == string.lower()) or (value1.lower() == string.lower()):
+	if (value or value1):
+	
 		return 1
 	else:
 		return 0
