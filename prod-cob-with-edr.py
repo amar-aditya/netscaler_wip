@@ -1,5 +1,4 @@
-#!/usr/bin/env python2.7
-__author__  = "Amer Aditya" 
+#!/usr/bin/env python2.6
 #This Python script will give below ouputs
 #All the Domain from ns.conf
 #All the prod_gslb_vserver which are active-active domain
