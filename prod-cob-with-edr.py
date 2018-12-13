@@ -18,7 +18,7 @@ def prodcob():
 		data=d_name.readlines()
 		for domain in data:
 			domain=domain.strip('\n')
-			prod_vs_value =  (os.popen("cat ns.conf | grep -i "+ domain + " | cut -d ' ' -f4 | head -1" ).read()).strip('\n')
+			prod_vs_value =  (os.popen("cat ns.conf | grep -w "+ domain + " | cut -d ' ' -f4 | head -1" ).read()).strip('\n')
 			bckp_vs_value = (os.popen("cat ns.conf | grep -w " + prod_vs_value + " | grep -i 'backupVserver' | cut -d ' ' -f6  | head -1").read()).strip('\n')
 			#print (bckp_vs_value)
 			#cob_backup = (os.popen("cat ns.conf | grep -i 'set gslb vserver " + bckp_vs_value + "' | grep -i  'backupVserver' " + " |  cut -d ' ' -f6 ").read()).strip('\n')
