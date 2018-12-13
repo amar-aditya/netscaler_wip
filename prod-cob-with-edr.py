@@ -24,7 +24,7 @@ def prodcob():
 			#cob_backup = (os.popen("cat ns.conf | grep -i 'set gslb vserver " + bckp_vs_value + "' | grep -i  'backupVserver' " + " |  cut -d ' ' -f6 ").read()).strip('\n')
 			#print (cob_backup)
 			if (prod_vs_value and bckp_vs_value):
-				cob_backup = (os.popen("cat ns.conf | grep -i 'set gslb vserver " + bckp_vs_value + "' | grep -i  'backupVserver' " + " |  cut -d ' ' -f6 | head -1 ").read()).strip('\n')
+				cob_backup = (os.popen("cat ns.conf | grep -w 'set gslb vserver " + bckp_vs_value + "' | grep -i  'backupVserver' " + " |  cut -d ' ' -f6 | head -1 ").read()).strip('\n')
 				#os.system("echo " +domain + " " +prod_vs_value+ " " + bckp_vs_value +  " " + ">>  all_Prod_cob.txt" )
 				if (cob_backup):
 					#print ("prod_cob_cob " + domain + " "+ " "+ prod_vs_value+ " " + " " +  bckp_vs_value + " "+cob_backup)
